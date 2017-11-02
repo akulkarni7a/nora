@@ -1,0 +1,182 @@
+#mainBar{
+	height: 107vh;
+	width: 18%;
+	float: left;
+	background-color: #424242;
+	text-align: center;
+	margin-top: -50px;
+}
+
+#header{
+	display: inline-block;
+	font-size: 24px;
+	width: 200px;
+	display: inline-block;
+    vertical-align: middle; 
+    margin-top: 15px;
+}
+
+.logotext{
+	display: inline;
+	color: white;
+}
+
+.image-cropper {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 60%;
+    display: inline-block;
+    vertical-align: middle; 
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#profileImg{
+	display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+}
+
+.name{
+	color: white;
+}
+
+.menuItem{
+	background-color: transparent;
+	width: 100%;
+	height: 50px;
+	border: none;
+
+}
+
+.menuItem:hover{
+	background-color: #515151;
+}
+
+.menuItemLogo{
+	margin-top: 4px;
+	fill: white;
+	width: 25px;
+	float: left;
+	margin-left: 20%;
+	/*display: inline;*/
+
+}
+
+.menuItemText{
+	display: inline;
+	margin-top: 5px;
+	padding-left: 20px;
+	color: white;
+	float: left;
+}
+
+.mainNav{
+	width: 82%;
+	height: 40px;
+	float: right;
+	background-color: #F2F2F2;
+}
+
+.dropdown{
+	border:0px;
+	outline:0px;
+	margin-left: 3%;
+	margin-top: 8px;
+	display: inline;
+}
+
+.searchbar{
+	display: inline;
+	margin-left: 40px;
+
+}
+
+#search{
+	width: 40%;
+	background-color: #E2EEE2;
+	border-style: none;
+}
+
+.menuButton{
+	background-color: transparent;
+	border-style: none;
+	margin-left: 20px;
+}
+
+.backgroundMain{
+	background-color: #C5CACF;
+	width: 82%;
+	height: 100vh;
+	float: right;
+}
+
+.mainSelector{
+	background-color: transparent;
+	border-style: none;
+	display: table-cell;
+    text-align: center;
+    margin-left: 120px;
+}
+
+.mainSelector:hover{
+	color:#E2EEE2;
+}
+
+
+.mainSelectorBody{
+	background-color: #EDEDED;
+	height: 300px;
+}
+
+.main-column{
+	background-color: white;
+	display: inline-block;
+	margin-left: 40px;
+	width: 800px;
+	height: 300px;
+	vertical-align: top
+}
+
+.main-header{
+	background-color: #687386;
+	color: white;
+	text-align: center;
+	width: 100%;
+}
+
+.add-lead-form{
+	display: inline-block;
+    text-align: center;
+	font-size: 10px;
+	margin-left: 40px;
+	margin-top: 10px;
+}
+
+.lead-form-input{
+	margin-top: 5px;
+/*	font-size: 8px;*/
+}
+
+#radioBtn{
+	display: inline-block;
+	margin-left: 40px;
+}
+
+.radioBtnDiv{
+	display: inline;
+}
+
+#columnA{
+	font-size: 12px;
+	display: inline-block;
+}
+
+#columnB{
+	font-size: 12px;
+	float: right;
+}
+

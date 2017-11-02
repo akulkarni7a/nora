@@ -1,0 +1,57 @@
+/*Navbar*/
+.logotext{
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 300;
+}
+
+.navbar-brand{
+	margin-left: 1.5%;
+}
+
+.home-button{
+	 border-radius: 0 !important;
+	 height: 35px;
+	 width: 101px;
+	 font-family: 'Work Sans', sans-serif;
+	 font-weight: 300;
+	 font-size: 15px;
+	 background-color: white;
+	 margin-right: 15px;
+}
+
+.home-button:hover{
+	 background-color: #edeeef;
+
+}
+
+#join-btn{
+	background-color: #8CE689;
+	color: white;
+}
+
+#join-btn:hover{
+	background-color: #80d17d;
+}
+
+#imgBanner{
+	width: 95%;
+	margin-left: 2.5%; 
+	z-index: 0;
+	
+}
+
+#moreInfoBanner{
+	z-index: 3;
+	display: inline;
+	background-color: white;
+}
+
+#imgText{
+	margin-top: -30%;
+	margin-left: 50%;
+	z-index: 1;
+	position: absolute;
+	font-family: 'Lato', sans-serif;
+
+}
+
