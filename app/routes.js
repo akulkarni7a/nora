@@ -85,8 +85,17 @@ module.exports = function(app, passport) {
     });
 
     app.get("/permissions", function(req, res) {
-        var dbQuery = "SELECT * FROM permissions where id = ?"
+        var dbQuery = "SELECT * FROM permissions where id = ?";
         connection.query(dbQuery, [currentUser.id], function(err, result) {
+            res.json(result);
+        });
+    });
+
+    app.get("/getID/:email?", function(req, res) {
+        var dbQuery = "SELECT * FROM parents where Parent_email = ?";
+        var reqEmail = req.params.email;
+        console.log(util.inspect(reqEmail, { showHidden: false, depth: null }))
+        connection.query(dbQuery, [req.params.email], function(err, result) {
             res.json(result);
         });
     });
@@ -124,6 +133,7 @@ module.exports = function(app, passport) {
 
     app.post("/addChild", function(req, res) {
         console.log("Entered2:");
+        console.log(util.inspect(req.body, { showHidden: false, depth: null }))
         var school = req.body.school;
         var childFirstName = req.body.childFirstName;
         var childLastName = req.body.childLastName;
@@ -136,11 +146,13 @@ module.exports = function(app, passport) {
         var parent2LastName = req.body.parent2LastName;
         var parentEmail = req.body.parentEmail;
         var parentPhone = req.body.parentPhone;
-        var number = 2;
-        console.log(childBirthdate)
+        var parentID = req.body.parentID;
+        console.log(parentID);
+
+
 
         var dbQuery = "INSERT INTO children (school,parent_id,child_first_name,child_last_name,child_birthday,child_gender,child_start_date) values(?,?,?,?,?,?,?);"
-        connection.query(dbQuery, [school,2,childFirstName,childLastName,childBirthdate,childGender,childStartDate], function(err, result) {
+        connection.query(dbQuery, [school,parentID,childFirstName,childLastName,childBirthdate,childGender,childStartDate], function(err, result) {
             console.log("result "+result);
             console.log("err "+err);
             res.json(result);

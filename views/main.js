@@ -39,6 +39,7 @@ $('#familyToggle').change(function() {
 
 $("#submitLead-btn").on("click", function(evet) {
     console.log("button");
+    var parentID = 0;
     var leadFormObj = {
         school: $("#schoolSelect").val(),
         childFirstName: $("#childFirstName").val(),
@@ -53,12 +54,18 @@ $("#submitLead-btn").on("click", function(evet) {
         parentEmail: $("#parentEmail").val(),
         parentPhone: $("#parentPhone").val()
     }
+
     if (parentStatus == "newParent") {
         $.post("/addParent", leadFormObj, function(data) {});
-
-        $.get("/getID", function(event){
+        console.log("parentEmail "+leadFormObj.parentEmail);
+        
+        $.get("/getID/"+leadFormObj.parentEmail, function(event){
         	console.log("getting an ID");
-        })
+            console.log(event[0].id);
+            leadFormObj.parentID = event[0].id;
+
+        });
+        console.log(leadFormObj);
 
         $.post("/addChild", leadFormObj, function(data) {
             console.log(leadFormObj);
