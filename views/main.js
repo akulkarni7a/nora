@@ -37,9 +37,9 @@ $('#familyToggle').change(function() {
     }
 });
 
-$("#submitLead-btn").on("click", function(evet) {
-    console.log("button");
-    var parentID = 0;
+$("#submitLead-btn").on("click", function(event) {
+
+    // var parentID = 0;
     var leadFormObj = {
         school: $("#schoolSelect").val(),
         childFirstName: $("#childFirstName").val(),
@@ -56,21 +56,26 @@ $("#submitLead-btn").on("click", function(evet) {
     }
 
     if (parentStatus == "newParent") {
-        $.post("/addParent", leadFormObj, function(data) {});
-        console.log("parentEmail "+leadFormObj.parentEmail);
-        
-        $.get("/getID/"+leadFormObj.parentEmail, function(event){
-        	console.log("getting an ID");
-            console.log(event[0].id);
-            leadFormObj.parentID = event[0].id;
+        $.post("/addParent", leadFormObj, function(data) {
+            $.get("/getID/" + leadFormObj.parentEmail, function(event) {
+                console.log("getting an ID");
+                console.log(event[0].id);
+                leadFormObj.parentID = event[0].id;
+                $.post("/addChild", leadFormObj, function(data) {
+                    console.log(leadFormObj);
+                    console.log("sent");
+                });
+                
+
+            });
 
         });
+        console.log("parentEmail " + leadFormObj.parentEmail);
+
+
         console.log(leadFormObj);
 
-        $.post("/addChild", leadFormObj, function(data) {
-            console.log(leadFormObj);
-            console.log("sent");
-        });
+
     }
 
 
