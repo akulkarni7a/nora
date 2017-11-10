@@ -62,10 +62,12 @@ interact('.dropzone').dropzone({
     //when hover over
     var draggableElement = event.relatedTarget,
         dropzoneElement = event.target;
+    
 
     // feedback the possibility of a drop
     dropzoneElement.classList.add('drop-target');
     draggableElement.classList.add('can-drop');
+
 
     //if element has "can drop", then run route
   },
@@ -77,9 +79,16 @@ interact('.dropzone').dropzone({
     event.target.classList.remove('drop-target');
     event.relatedTarget.classList.remove('can-drop');
   },
-  // ondrop: function (event) {
-  //   event.relatedTarget.textContent = 'Dropped';
-  // },
+  ondrop: function (event) {
+    // event.relatedTarget.textContent = 'Dropped';
+    console.log("dropped");
+    var updatedStatus = {
+      name:$(event.relatedTarget).text(),
+      status:event.target.id
+    }
+    console.log(updatedStatus);
+
+  },
   ondropdeactivate: function (event) {
     console.log("D");
     //when dropped
