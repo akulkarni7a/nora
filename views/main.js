@@ -1,16 +1,3 @@
-$.get("/permissions", function(data) {
-    console.log(data[0]);
-    var obj = data[0];
-
-    for (var key in obj) {
-        console.log(key, obj[key]);
-        if (obj[key] !== null && typeof(obj[key]) !== "number") {
-            $("#schoolSelect").append("<option id=" + obj[key] + ">" + obj[key] + "</option>")
-        }
-    }
-})
-
-
 $("#familyInput").on('keyup change',function(event){
     $("#familyName").empty();
     var input = $("#familyInput").val();
@@ -26,16 +13,6 @@ $("#familyInput").on('keyup change',function(event){
         
     })
       
-})
-
-
-
-
-$.get("/pageLoad", function(data) {
-    console.log(data);
-    $("#profileImg").attr("src", data.photo);
-    $("#userName").html("<div>" + data.first_name + " " + data.last_name + "</div>");
-
 })
 
 $(document).ready(function() {

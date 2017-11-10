@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="drag.css">
 </head>
 
 <body>
@@ -35,6 +36,13 @@
         </button>
     </div>
     <div class="backgroundMain">
+        <button id="generateCards">Generate Cards</button>
+        <div class="flashCards">
+            <div id="outer-dropzone" class="dropzone">
+              #outer-dropzone
+              <div id="inner-dropzone" class="dropzone">#inner-dropzone</div>
+             </div>
+        </div>
     </div>
     <div id="mainBar">
         <div id="header">
@@ -83,9 +91,10 @@
             </form>
         </div>
     </div>
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="state.js"></script>
     <script type="text/javascript" src="pipeline.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.9/interact.min.js"></script>
+    <script type="text/javascript" src="drag.js"></script>
 </body>
 
 </html>
