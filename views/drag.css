@@ -7,21 +7,23 @@
 }
 
 .dropzone {
-  background-color: #ccc;
+  background-color: #E2EEE2;
   border: dashed 4px transparent;
   border-radius: 4px;
   margin: 10px auto 30px;
   padding: 10px;
   width: 80%;
   transition: background-color 0.3s;
+
 }
 
 .drop-active {
   border-color: #aaa;
 }
 
+//this on
 .drop-target {
-  background-color: #29e;
+  background-color: #E2EEE2;
   border-color: #fff;
   border-style: solid;
 }
@@ -42,6 +44,7 @@
 }
 
 .drag-drop.can-drop {
-  color: #000;
-  background-color: #4e4;
+  color: #ffffff;
+  background-color: #292F36;
 }
+

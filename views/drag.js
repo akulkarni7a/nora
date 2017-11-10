@@ -42,7 +42,7 @@ interact('.draggable')
 
   // this is used later in the resizing and gesture demos
   window.dragMoveListener = dragMoveListener;
-  
+
 interact('.dropzone').dropzone({
   // only accept elements matching this CSS selector
   accept: '#yes-drop',
@@ -52,30 +52,51 @@ interact('.dropzone').dropzone({
   // listen for drop related events:
 
   ondropactivate: function (event) {
+    console.log("A");
+    //when clicked
     // add active dropzone feedback
     event.target.classList.add('drop-active');
   },
   ondragenter: function (event) {
+    console.log("B");
+    //when hover over
     var draggableElement = event.relatedTarget,
         dropzoneElement = event.target;
 
     // feedback the possibility of a drop
     dropzoneElement.classList.add('drop-target');
     draggableElement.classList.add('can-drop');
-    draggableElement.textContent = 'Dragged in';
+
+    //if element has "can drop", then run route
   },
   ondragleave: function (event) {
+    console.log("C");
+    //when hover off
     // remove the drop feedback style
+
     event.target.classList.remove('drop-target');
     event.relatedTarget.classList.remove('can-drop');
-    event.relatedTarget.textContent = 'Dragged out';
   },
-  ondrop: function (event) {
-    event.relatedTarget.textContent = 'Dropped';
-  },
+  // ondrop: function (event) {
+  //   event.relatedTarget.textContent = 'Dropped';
+  // },
   ondropdeactivate: function (event) {
+    console.log("D");
+    //when dropped
     // remove active dropzone feedback
+    var draggableElement = event.relatedTarget;
     event.target.classList.remove('drop-active');
     event.target.classList.remove('drop-target');
+
+
   }
 });
+
+
+
+
+
+// if($("#yes-drop").hasClass("step1") && $("#yes-drop").hasClass("step2")){
+//   console.log("this one");
+// }
+

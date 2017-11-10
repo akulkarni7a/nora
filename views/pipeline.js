@@ -5,7 +5,7 @@ $("#generateCards").on("click",function(event){
 	$.get("/generateCards/"+school, function(data) {
 		console.log(data);
 		for(var i = 0; i<data.length;i++){
-			$(".flashCards").append("<div id='yes-drop' class='draggable drag-drop'>"+data[i]["child_first_name"]);
+			$(".flashCards").append("<div id='yes-drop' class='draggable drag-drop' value="+data[i]["child_first_name"]+data[i]["child_last_name"]+">"+data[i]["child_first_name"]+" "+data[i]["child_last_name"]);
 		}
 	})
 
@@ -13,8 +13,13 @@ $("#generateCards").on("click",function(event){
 })
 
 
-// <div id="yes-drop" class="draggable drag-drop"> #yes-drop </div>
-
+$("#save").on("click", function(event){
+	console.log("updated");
+	//find out what name is in what div
+	$(".can-drop").each(function() {
+	    console.log($(this).text());
+	});
+})
 
 
 
