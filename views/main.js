@@ -11,6 +11,26 @@ $.get("/permissions", function(data) {
 })
 
 
+$("#familyInput").on('keyup change',function(event){
+    $("#familyName").empty();
+    var input = $("#familyInput").val();
+    console.log(input);
+
+    $.get("/families/"+input, function(data) {
+        console.log(data);
+        var obj = data;
+        for(var i = 0;i<data.length;i++){
+            $("#familyName").append("<option id=" + data[i]["Parent_email"] + ">" + data[i]["Parent_email"] + "</option>")
+        }
+            
+        
+    })
+      
+})
+
+
+
+
 $.get("/pageLoad", function(data) {
     console.log(data);
     $("#profileImg").attr("src", data.photo);

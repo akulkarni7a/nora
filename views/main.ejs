@@ -53,8 +53,11 @@
             <form>
             <div class="col-md-5" id="columnA">
                 <div class="parentInputs1">
-                    <label>Search Parent Name: </label>
-                    <input class="lead-form-input" type="text" name="searchbar">
+                    <label>Search Parent Email: </label>
+                    <input class="lead-form-input" type="text" name="searchbar" list="familyName" id="familyInput"> 
+                    <datalist id="familyName">
+                        <option value="small"/>
+                    </datalist>
                 </div>
                 <div>
                     <label>Child First Name: </label>

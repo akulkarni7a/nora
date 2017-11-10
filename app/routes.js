@@ -91,6 +91,13 @@ module.exports = function(app, passport) {
         });
     });
 
+    app.get("/families/:email?", function(req, res) {
+        var dbQuery = "SELECT * FROM parents where Parent_email like ?";
+        connection.query(dbQuery, [req.params.email+"%"], function(err, result) {
+            res.json(result);
+        });
+    });
+
     app.get("/getID/:email?", function(req, res) {
         var dbQuery = "SELECT * FROM parents where Parent_email = ?";
         var reqEmail = req.params.email;
