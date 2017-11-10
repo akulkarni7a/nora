@@ -57,6 +57,7 @@ module.exports = function(app, passport) {
         failureFlash: true // allow flash messages
     }));
     var currentUser;
+    var currentSchool;
 
     // =====================================
     // PROFILE SECTION =========================
@@ -66,7 +67,6 @@ module.exports = function(app, passport) {
     app.get('/main', isLoggedIn, function(req, res) {
         res.render('main.ejs', {
             user: req.user // get the user out of session and pass to template
-
         });
         currentUser = req.user;
     });
@@ -74,7 +74,6 @@ module.exports = function(app, passport) {
     app.get('/pipeline', isLoggedIn, function(req, res) {
         res.render('pipeline.ejs', {
             user: req.user // get the user out of session and pass to template
-
         });
         currentUser = req.user;
     });
@@ -95,6 +94,13 @@ module.exports = function(app, passport) {
     app.get("/permissions", function(req, res) {
         var dbQuery = "SELECT * FROM permissions where id = ?";
         connection.query(dbQuery, [currentUser.id], function(err, result) {
+            res.json(result);
+        });
+    });
+
+    app.get("/generateCards/:school?", function(req, res) {
+        var dbQuery = "SELECT * FROM children where school = ?";
+        connection.query(dbQuery, [req.params.school], function(err, result) {
             res.json(result);
         });
     });
