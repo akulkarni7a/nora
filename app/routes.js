@@ -71,6 +71,14 @@ module.exports = function(app, passport) {
         currentUser = req.user;
     });
 
+    app.get('/pipeline', isLoggedIn, function(req, res) {
+        res.render('pipeline.ejs', {
+            user: req.user // get the user out of session and pass to template
+
+        });
+        currentUser = req.user;
+    });
+
     // =====================================
     // LOGOUT ==============================
     // =====================================

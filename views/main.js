@@ -43,6 +43,8 @@ $(document).ready(function() {
     $(".parentInputs").hide();
 });
 
+var parentStatus = "existingParent";
+
 $('#familyToggle').change(function() {
     console.log("switched");
     parentStatus = $('#familyToggle').val();
@@ -58,6 +60,7 @@ $('#familyToggle').change(function() {
 });
 
 $("#submitLead-btn").on("click", function(event) {
+    event.preventDefault();
 
     // var parentID = 0;
     var leadFormObj = {
@@ -72,6 +75,7 @@ $("#submitLead-btn").on("click", function(event) {
         parent2FirstName: $("#parent2FirstName").val(),
         parent2LastName: $("#parent2LastName").val(),
         parentEmail: $("#parentEmail").val(),
+        parentEmail1: $("#familyInput").val(),
         parentPhone: $("#parentPhone").val()
     }
 
@@ -96,6 +100,22 @@ $("#submitLead-btn").on("click", function(event) {
         console.log(leadFormObj);
 
 
+    }
+
+    if(parentStatus == "existingParent"){
+        
+        console.log(leadFormObj);
+        $.get("/getID/" + leadFormObj.parentEmail1, function(event) {
+                console.log("getting an ID");
+                console.log(event[0].id);
+                leadFormObj.parentID = event[0].id;
+                    $.post("/addChild", leadFormObj, function(data) {
+                        console.log(leadFormObj);
+                        console.log("sent");
+                    });
+                
+
+            });
     }
 
 
