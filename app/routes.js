@@ -129,7 +129,7 @@ module.exports = function(app, passport) {
         var firstName = newname[0];
         var lastName = newname[1];
 
-        var dbQuery = "SELECT * FROM children where child_first_name = ? AND child_first_name = ?";
+        var dbQuery = "SELECT * FROM children where child_first_name = ? AND child_last_name = ?";
             connection.query(dbQuery, [firstName, lastName], function(err, result) {
             res.json(result);
         });
@@ -172,6 +172,12 @@ module.exports = function(app, passport) {
             res.json(result);
             console.log("status updated");
         });
+
+        var dbQuery1 = "UPDATE children set status = ? where id = ?"
+        connection.query(dbQuery1, [status,id], function(err, result) {
+            console.log("status updated");
+        });
+
 
     });
 

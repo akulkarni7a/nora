@@ -10,3 +10,4 @@ To Do:
 1. Figure out State (School) on page change
 2. add status column in child table
 3. figure out how to generate flashcards based on statuses
+4. Clear notecards when school changes

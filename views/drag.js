@@ -86,8 +86,10 @@ interact('.dropzone').dropzone({
             name: $(event.relatedTarget).text(),
             status: event.target.id
         }
+        console.log(updateStatus);
         $.get("/getchildID/" + updateStatus.name, function(event) {
                 console.log("getting an ID");
+                console.log(event);
                 var childID = event[0]['id'];
                 updateStatus.childID = childID;
                 console.log(updateStatus);

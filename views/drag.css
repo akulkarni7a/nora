@@ -30,7 +30,8 @@
 
 .drag-drop {
   display: inline-block;
-  min-width: 40px;
+  word-wrap: break-word;
+  width: 60px;
   padding: 2em 0.5em;
   font-size: 10px;
   color: #fff;
@@ -41,6 +42,7 @@
           transform: translate(0px, 0px);
 
   transition: background-color 0.3s;
+  z-index: 4;
 }
 
 .drag-drop.can-drop {
