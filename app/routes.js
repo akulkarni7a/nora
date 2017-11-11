@@ -120,6 +120,13 @@ module.exports = function(app, passport) {
             res.json(result);
         });
     });
+
+    app.get("/getParent/:id?", function(req, res) {
+        var dbQuery = "SELECT * FROM parents where id = ?";
+        connection.query(dbQuery, [req.params.id], function(err, result) {
+            res.json(result);
+        });
+    });
 ////////
     app.get("/getchildID/:name?", function(req, res) {
         var name = req.params.name;
