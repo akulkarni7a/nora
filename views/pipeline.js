@@ -18,9 +18,12 @@ $("#generateCards").on("click",function(event){
 			
 		}																																				
 	})
-
-
 })
+
+$("#schoolSelect").change(function(event){
+	console.log("school changed");
+	$(".drag-drop").remove();
+});
 
 
 
