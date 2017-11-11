@@ -82,11 +82,15 @@ interact('.dropzone').dropzone({
     ondrop: function(event) {
         // event.relatedTarget.textContent = 'Dropped';
         console.log("dropped");
+        var card = event.relatedTarget;
         var updateStatus = {
             name: $(event.relatedTarget).text(),
             status: event.target.id
         }
         console.log(updateStatus);
+        if(updateStatus.status == "trash"){
+            card.remove();
+        }
         $.get("/getchildID/" + updateStatus.name, function(event) {
                 console.log("getting an ID");
                 console.log(event);

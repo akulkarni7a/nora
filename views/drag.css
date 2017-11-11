@@ -1,9 +1,6 @@
-#new-lead {
-  height: 80px;
-}
-
-#contacted {
-  height: 80px;
+#trash{
+  background-color: #484b4f;
+  color: white;
 }
 
 .dropzone {
@@ -13,6 +10,7 @@
   margin: 10px auto 30px;
   padding: 10px;
   width: 80%;
+  height: 80px;
   transition: background-color 0.3s;
 
 }
@@ -21,7 +19,6 @@
   border-color: #aaa;
 }
 
-//this on
 .drop-target {
   background-color: #E2EEE2;
   border-color: #fff;
