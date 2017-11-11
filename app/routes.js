@@ -120,6 +120,20 @@ module.exports = function(app, passport) {
             res.json(result);
         });
     });
+////////
+    app.get("/getchildID/:name?", function(req, res) {
+        var name = req.params.name;
+        console.log(name);
+        var newname = name.split(' ');
+        console.log(newname);
+        var firstName = newname[0];
+        var lastName = newname[1];
+
+        var dbQuery = "SELECT * FROM children where child_first_name = ? AND child_first_name = ?";
+            connection.query(dbQuery, [firstName, lastName], function(err, result) {
+            res.json(result);
+        });
+    });
 
     app.post("/addParent", function(req, res) {
         console.log("Entered:");
@@ -140,6 +154,23 @@ module.exports = function(app, passport) {
         connection.query(dbQuery, [school,parent1FirstName,parent1LastName,parent2FirstName,parent2LastName,parentPhone,parentEmail], function(err, result) {
             res.json(result);
             console.log("query sent1");
+        });
+
+    });
+
+    app.post("/updateStatus", function(req, res) {
+        console.log("Entered:");
+        var name = req.body.name;
+        var status = req.body.status;
+        var id = req.body.childID;
+        console.log(name);
+        console.log(status);
+        console.log(id);
+
+        var dbQuery = "Insert INTO childStatus (child_id,childStatus) values (?,?)"
+        connection.query(dbQuery, [id,status], function(err, result) {
+            res.json(result);
+            console.log("status updated");
         });
 
     });

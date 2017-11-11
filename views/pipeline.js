@@ -13,13 +13,6 @@ $("#generateCards").on("click",function(event){
 })
 
 
-$("#save").on("click", function(event){
-	console.log("updated");
-	//find out what name is in what div
-	$(".can-drop").each(function() {
-	    console.log($(this).text());
-	});
-})
 
 
 
