@@ -78,6 +78,13 @@ module.exports = function(app, passport) {
         currentUser = req.user;
     });
 
+    app.get('/marketing', isLoggedIn, function(req, res) {
+        res.render('marketing.ejs', {
+            user: req.user // get the user out of session and pass to template
+        });
+        currentUser = req.user;
+    });
+
     // =====================================
     // LOGOUT ==============================
     // =====================================
@@ -220,6 +227,27 @@ module.exports = function(app, passport) {
         connection.query(dbQuery, [school,parentID,childFirstName,childLastName,childBirthdate,childGender,childStartDate], function(err, result) {
             console.log("result "+result);
             console.log("err "+err);
+            res.json(result);
+            console.log("query sent2");
+        });
+
+    });
+
+    app.post("/updateSettings", function(req, res) {
+        console.log("Update Settings:");
+        var statuses = req.body;
+        console.log(util.inspect(statuses, { showHidden: false, depth: null }))
+        var school = req.body.school;
+        var contactedSendEmail = req.body.contacted.sendEmail;
+        var contactedEmailDelay = req.body.contacted.EmailDelay;
+        var contactedEmailText = req.body.contacted.EmailText;
+        var contactedsendText = req.body.contacted.sendText;
+        var contactedTextDelay = req.body.contacted.TextDelay;
+        var contactedTextText = req.body.contacted.TextText;
+
+
+        var dbQuery = "UPDATE settings set contacted_email = ?,contacted_email_delay =?,contacted_email_text=?,contacted_text=?,contacted_text_delay=?,contacted_text_text=? where id = ?;"
+        connection.query(dbQuery, [contactedSendEmail,contactedEmailDelay,contactedEmailText,contactedsendText,contactedTextDelay,contactedTextText,school], function(err, result) {
             res.json(result);
             console.log("query sent2");
         });

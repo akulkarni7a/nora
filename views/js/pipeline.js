@@ -7,11 +7,11 @@ $("#generateCards").on("click", function(event) {
         var xAxis = 150;
         var xAxis1 = 150;
         for (var i = 0; i < data.length; i++) {
-            if (data[i]["status"] == "contacted") {
+            if (data[i]["status"] == "new-lead") {
                 xAxis1 = xAxis1 + 60;
                 $(".flashCards").append("<div id='yes-drop' class='draggable drag-drop' rel='modal:open' value=" + data[i]["child_first_name"] + data[i]["child_last_name"] + " style='float:left;margin-top:-645px;margin-left:" + xAxis1 + "px'" + ">" + data[i]["child_first_name"] + " " + data[i]["child_last_name"]);
             }
-            if (data[i]["status"] == "new-lead") {
+            if (data[i]["status"] == "contacted") {
                 xAxis = xAxis + 60;
                 $(".flashCards").append("<div id='yes-drop' class='draggable drag-drop' value=" + data[i]["child_first_name"] + data[i]["child_last_name"] + " style='float:left;margin-top:-540px;margin-left:" + xAxis + "px'" + ">" + data[i]["child_first_name"] + " " + data[i]["child_last_name"]);
             }
