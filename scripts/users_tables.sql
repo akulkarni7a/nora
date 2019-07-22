@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS users (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    password CHAR(60) NOT NULL,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    creation_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    modified_date DATETIME ON UPDATE CURRENT_TIMESTAMP,
+    added_by VARCHAR(255),
+    photo_url VARCHAR(255),
+    PRIMARY KEY (`id`)
+)  ENGINE=INNODB;
+
+
+

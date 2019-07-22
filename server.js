@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var app      = express();
 var port     = process.env.PORT || 8080;
+var path = require('path');
 
 var passport = require('passport');
 var flash    = require('connect-flash');
@@ -28,8 +29,9 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-// app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 app.use(express.static("./views"));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // required for passport
 app.use(session({

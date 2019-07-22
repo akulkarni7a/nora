@@ -1,0 +1,19 @@
+MIME-Version: 1.0
+Date: Mon, 24 Jun 2019 21:38:52 -0700
+Message-ID: <CA+52XE1Zjn17Mv3v_U6DQFc-2ZL=K_O5-rugO8d+_FYWZkPJiQ@mail.gmail.com>
+Subject: test2
+From: AK from Nora <ak@mynora.app>
+To: Anirudh Kulkarni <ak@mynora.app>
+Content-Type: multipart/alternative; boundary="000000000000a70fcf058c1e81cc"
+
+--000000000000a70fcf058c1e81cc
+Content-Type: text/plain; charset="UTF-8"
+
+this is a test
+
+--000000000000a70fcf058c1e81cc
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr">this is a test</div>
+
+--000000000000a70fcf058c1e81cc--

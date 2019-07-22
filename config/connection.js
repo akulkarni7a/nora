@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "Cricket47",
-  database: "my_schema"
+  database: "nora"
 });
 
 // Connect to the database

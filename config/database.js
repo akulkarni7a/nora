@@ -5,6 +5,6 @@ module.exports = {
         'user': 'root',
         'password': 'Cricket47'
     },
-	'database': 'my_schema',
+	'database': 'nora',
     'users_table': 'users'
 };
